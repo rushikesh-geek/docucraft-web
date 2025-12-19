@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Document Editor</title>
+    <meta name="description" content="A professional web-based document editor">
+    
+    <!-- Quill.js CSS -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Skip to main content for screen readers -->
+    <a href="#editor" class="skip-link">Skip to editor</a>
+    
+    <!-- Main Container -->
+    <div class="container">
+        
+        <!-- Header Section -->
+        <header class="header" role="banner">
+            <div class="header-left">
+                <h1 class="app-title">📝 Smart Document Editor</h1>
+            </div>
+            <div class="header-right">
+                <button id="darkModeToggle" class="btn btn-icon" 
+                        title="Toggle Dark Mode" 
+                        aria-label="Toggle dark mode">
+                    🌙
+                </button>
+            </div>
+        </header>
+
+        <!-- Toolbar Section -->
+        <nav class="toolbar" role="toolbar" aria-label="Document formatting toolbar">
+            <!-- File Operations -->
+            <div class="toolbar-group" role="group" aria-label="File operations">
+                <button id="newDoc" class="btn" title="New Document" aria-label="Create new document">New</button>
+                <button id="saveDoc" class="btn" title="Save Document (Ctrl+S)" aria-label="Save document">💾 Save</button>
+                <button id="loadDoc" class="btn" title="Load Document" aria-label="Load saved document">📂 Load</button>
+            </div>
+
+            <!-- Export Options -->
+            <div class="toolbar-group" role="group" aria-label="Export options">
+                <button id="exportPDF" class="btn" title="Export to PDF" aria-label="Export document as PDF">📄 PDF</button>
+            </div>
+
+            <!-- Text Formatting - Will be populated by Quill -->
+            <div id="quill-toolbar" class="toolbar-group" role="group" aria-label="Text formatting">
+                <!-- Quill toolbar will inject controls here -->
+                <select class="ql-header">
+                    <option value="1">Heading 1</option>
+                    <option value="2">Heading 2</option>
+                    <option value="3">Heading 3</option>
+                    <option selected>Normal</option>
+                </select>
+                
+                <select class="ql-font">
+                    <option selected>Sans Serif</option>
+                    <option value="serif">Serif</option>
+                    <option value="monospace">Monospace</option>
+                </select>
+
+                <select class="ql-size">
+                    <option value="small">Small</option>
+                    <option selected>Normal</option>
+                    <option value="large">Large</option>
+                    <option value="huge">Huge</option>
+                </select>
+
+                <button class="ql-bold" title="Bold (Ctrl+B)"></button>
+                <button class="ql-italic" title="Italic (Ctrl+I)"></button>
+                <button class="ql-underline" title="Underline (Ctrl+U)"></button>
+
+                <button class="ql-list" value="ordered" title="Numbered List"></button>
+                <button class="ql-list" value="bullet" title="Bullet List"></button>
+
+                <button class="ql-align" value="" title="Align Left"></button>
+                <button class="ql-align" value="center" title="Align Center"></button>
+                <button class="ql-align" value="right" title="Align Right"></button>
+                <button class="ql-align" value="justify" title="Align Justify"></button>
+            </div>
+
+            <!-- Undo/Redo -->
+            <div class="toolbar-group" role="group" aria-label="Undo and redo">
+                <button id="undoBtn" class="btn" title="Undo (Ctrl+Z)" aria-label="Undo last change">↶ Undo</button>
+                <button id="redoBtn" class="btn" title="Redo (Ctrl+Y)" aria-label="Redo last change">↷ Redo</button>
+            </div>
+        </nav>
+
+        <!-- Editor Section -->
+        <main class="editor-wrapper" role="main">
+            <div id="editor" class="editor-content" 
+                 role="textbox" 
+                 aria-label="Document editor" 
+                 aria-multiline="true">
+                <!-- Quill editor will be initialized here -->
+            </div>
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="footer" role="contentinfo">
+            <div class="footer-left">
+                <span id="wordCount" aria-live="polite" aria-atomic="true">Words: 0 | Characters: 0</span>
+            </div>
+            <div class="footer-right">
+                <span id="autoSaveStatus" aria-live="polite" aria-atomic="true">Autosave: Off</span>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Quill.js Library -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    
+    <!-- html2canvas Library for screenshot capture -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <!-- jsPDF Library for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- html2pdf.js Library for PDF Export (fallback) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript Modules -->
+    <script src="assets/js/editor.js"></script>
+    <script src="assets/js/storage.js"></script>
+    <script src="assets/js/export.js"></script>
+</body>
+</html>
