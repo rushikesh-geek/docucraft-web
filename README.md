@@ -6,11 +6,15 @@
 [![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-yellow.svg)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![Quill.js](https://img.shields.io/badge/Quill.js-1.3.6-blue.svg)](https://quilljs.com/)
 
+## 🚀 **[Live Demo](https://docucraft-web.netlify.app/)** 
+
+**Try it now:** https://docucraft-web.netlify.app/
+
+---
+
 ## 🎯 Project Overview
 
 Smart Document Editor is a feature-rich, browser-based document editor that provides professional word processing capabilities without requiring any backend infrastructure. Built as a real-world portfolio project, it demonstrates clean architecture, accessibility best practices, and modern web development techniques.
-
-**Live Demo:** [Open index.html in your browser]
 
 **Target Users:** Students, professionals, writers, and anyone needing a lightweight, privacy-focused document editor.
 
